@@ -1,0 +1,35 @@
+{
+  "name": "worldd-refactor",
+  "version": "2.0.0",
+  "description": "Rewrite of the original",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jms8142/worldd_rf.git"
+  },
+  "keywords": [
+    "javascript",
+    "game",
+    "HTML5"
+  ],
+  "author": "John Skrzypek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jms8142/worldd_rf/issues"
+  },
+  "homepage": "https://github.com/jms8142/worldd_rf#readme",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "file-loader": "^0.9.0",
+    "node-sass": "^4.1.1",
+    "sass-loader": "^4.1.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-init": "^0.1.2"
+  }
+}
