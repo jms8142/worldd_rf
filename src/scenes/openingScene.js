@@ -1,28 +1,23 @@
 import Scene from './index'
 import THREE from "../factories/three"
+import { GAME_WIDTH, GAME_HEIGHT, DOM_CONTAINER } from '../constants'
 
 
 export class openingScene extends Scene {
 	constructor(){
 		super()
 		this.name = 'openingScene'
-
-		// this.setProps()
-		return
+		this.addGround.bind(this)
 	}
 
 	stage() {
-		const textureLoader = new THREE.TextureLoader()
-		textureLoader.load(
-			'grass.png',
-			(texture) => {
-				texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-				texture.repeat.set(25, 25)
-			}
-		)
-		//const grassTexture =
-		//console.dir(grassTexture)
-		//grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping
-        //grassTexture.repeat.set(25, 25)
+
+	
+	}
+
+	addGround() {
+		console.log('floop')
+		console.log(this.ground)
+		this.scene.add(this.ground)
 	}
 }

@@ -1,3 +1,5 @@
+import THREE from "../factories/three"
+
 export default class Scene {
 	static getSceneFromLabel(label) {
 		return new scenes[label]
@@ -5,6 +7,11 @@ export default class Scene {
 
 	constructor() {
 		this.props = []
+		this.scene = new THREE.Scene()
+	}
+
+	getScene() {
+		return this.scene
 	}
 
 	stage() {
