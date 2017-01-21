@@ -1,11 +1,6 @@
 const assert = require('chai').assert
 import GameBoard from '../../src/actors/GameBoard'
 import { GAME_COLS, GAME_ROWS } from '../../src/constants'
-/*
-beforeEach(function(){
-    this.gameboard = new GameBoard()
-});
-*/
 
 describe('gameboard tests', function(){
 
