@@ -1,15 +1,18 @@
 import THREE from "../factories/three"
+import { GAME_WIDTH, GAME_HEIGHT, DOM_CONTAINER } from '../constants'
 
 export default class Scene {
 	static getSceneFromLabel(label) {
 		return new scenes[label]
 	}
 
-	constructor(light = this.DefaultLight, camera = this.DefaultCam) {
+	constructor(renderer, light = this.DefaultLight, camera = this.DefaultCam) {
 		this.props = []
 		this.scene = new THREE.Scene()
 		this.light = light
 		this.camera = camera
+		//console.dir(renderer)
+		this.renderer = renderer
 
 		//add and position items in scene
 		this.stage()
@@ -27,25 +30,33 @@ export default class Scene {
 		this.scene.add(this.camera)
 
 		//setup actors
-		let material = new THREE.MeshBasicMaterial({
-            color: 0xff0000,
-            wireframe: true
+		let material = new THREE.MeshStandardMaterial({
+            color: 0x7cb6d4,
+			wireframe: true
         })
 
-        let sphere = new THREE.Mesh(
-            new THREE.SphereGeometry(
-                10,
-                25,
-                25),
+        this.sphere = new THREE.Mesh(
+            new THREE.CylinderBufferGeometry(
+                2,
+                2,
+                .5,
+				16
+			),
             material)
-
-        sphere.name = "sphere";
-        this.scene.add(sphere)
+		//console.log(-(GAME_WIDTH / 2) + 240)
+        this.sphere.name = "sphere";
+		this.sphere.rotation.x = 5
+		console.dir(this.sphere)
+        this.scene.add(this.sphere)
 
 	}
 
-	render(renderer) {
-		renderer.render(this.scene,this.camera)
+	render() {
+		this.sphere.rotation.z += 0.005;
+
+		this.renderer.render(this.scene,this.camera)
+
+		requestAnimationFrame(this.render.bind(this))
 	}
 
 	get DefaultCam() {
@@ -55,6 +66,17 @@ export default class Scene {
             1,
             1000
         )
+
+		/*
+		return new THREE.OrthographicCamera(
+			GAME_WIDTH / - 2,
+			GAME_WIDTH / 2,
+			GAME_HEIGHT / 2,
+			GAME_HEIGHT / - 2,
+			1,
+			1000
+		)
+		*/
 	}
 
 	get DefaultLight() {

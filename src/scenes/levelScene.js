@@ -5,8 +5,8 @@ import THREE, * as ThreeLIB from '../factories/three'
 
 export class levelScene extends Scene {
 
-	constructor(){
-		super()
+	constructor(renderer){
+		super(renderer)
 		this.name = 'openingScene'
 		this.gameboard = ActorManager.getActor('gameboard')
 	}
@@ -21,7 +21,7 @@ export class levelScene extends Scene {
 		this.gameboard.createTileMap()
 		//temp for develop
 		this.gameboard.populateRandom()
-		this.gameboard.render(this.getScene())
+		//this.gameboard.render(this.getScene())
 	}
 
 }

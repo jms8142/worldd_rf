@@ -8,13 +8,14 @@ class App {
     constructor() {}
 
     init(){
-        this.currentScene = new levelScene()
-        this.currentScene.render(this.addRenderer())
-        //this.currentScene.start()*/
+        this.currentScene = new levelScene(this.addRenderer())
+        this.currentScene.render()
+        this.currentScene.start()
     }
 
     addRenderer() {
         this.renderer = new THREE.WebGLRenderer()
+        // console.log(GAME_WIDTH, GAME_HEIGHT)
         this.renderer.setSize(window.innerWidth, window.innerHeight)
         //this.renderer.setClearColor(0xE0EEEE)
         document.getElementById(DOM_CONTAINER).appendChild(this.renderer.domElement)
